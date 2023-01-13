@@ -17,6 +17,8 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptor/jwt.interceptor';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { LoadingInterceptor } from './_interceptor/loading.interceptor';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
     ServerErrorComponent,
     MemberListComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -43,6 +46,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
   ],
   bootstrap: [AppComponent]
 })
