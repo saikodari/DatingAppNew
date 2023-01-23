@@ -7,11 +7,11 @@
         <div class="btn-group" name="predicate">
             <button class="btn btn-primary" 
                 btnRadio="liked" 
-                [(ngModel)]="predicate"
+                [(ngModel)]="predicate" 
                 (click)="loadLikes()">Members I like</button>
             <button class="btn btn-primary" 
                 btnRadio="likedBy" 
-                [(ngModel)]="predicate"
+                [(ngModel)]="predicate" 
                 (click)="loadLikes()">Members who like me</button>
         </div>
     </div>
@@ -22,21 +22,18 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-2" *ngFor="let member of members">
-      <app-member-card [member]="member"></app-member-card>
-    </div>
-    <div class="d-flex justify-content-center" *ngIf="pagination">
-      <pagination [boundaryLinks]="true"
-       [totalItems]="pagination.totalItems"
-       [itemsPerPage]="pagination.itemsPerPage"
-       [maxSize]="10"
-       [(ngModel)]="pagination.currentPage"
-       (pageChanged)="pageChanged($event)"
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+    <pagination 
+        [boundaryLinks]="true" 
+        [totalItems]="pagination.totalItems"
+        [itemsPerPage]="pagination.itemsPerPage"
+        [maxSize]="10"
+        [(ngModel)]="pagination.currentPage"
+        (pageChanged)="pageChanged($event)"
         previousText="&lsaquo;" 
         nextText="&rsaquo;" 
-        firstText="&laquo;"
+        firstText="&laquo;" 
         lastText="&raquo;">
-      </pagination>
-    </div>
-
+    </pagination>
+</div>
