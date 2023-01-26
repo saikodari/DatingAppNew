@@ -1,7 +1,7 @@
 name: docker-push
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
   # push:
   #   branches:
   #     - 'main'
@@ -10,7 +10,6 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-    
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -24,6 +23,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{defaultContext}:API"
-          push: true
+          context: "{{defaultContext}}:API"
+          push: true          
           tags: saikodari/datingapp
